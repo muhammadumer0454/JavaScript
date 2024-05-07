@@ -6,32 +6,183 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js" defer></script>
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.856);
+        }
+
+        h1 {
+            color: white;
+            font-size: 60px;
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        .mainC {
+            background-color: black;
+            max-width: 410px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 12px;
+            gap: 6px;
+        }
+
+        .mainC input {
+            padding: 18px 8px;
+            outline: none;
+            font-size: 30px;
+        }
+
+        .mainC button {
+            padding: 18px;
+            margin: 4px;
+            width: 22.3%;
+            font-size: 22px;
+        }
+
+        .group4 :nth-child(2) {
+            width: 72.8%;
+
+        }
+    </style>
 </head>
 
 <body>
-<h1>Table Printer</h1>
 
-<input id="input" style="width: 300px;" type="number" placeholder="Enter the table you want to print:">
-<button onclick="input()">submit</button>
+    <h1>Calculator</h1>
+
+    <div class="mainC">
 
 
-<script>
-    
-    let tableInput = document.getElementById("input").value;
+        <input id="txt" type="text" readonly>
 
-    let integer = parseInt(tableInput);
+        <div class="container">
 
-    let input = () =>{
-        
-        
-        for(let i = 1; i < 11; i++){
-            
-                document.write( integer * i );
+            <div class="group5">
 
-            }
+
+                <button onclick="VALUE('/')">
+                    &#247
+                </button>
+
+                <button onclick="VALUE('*')">
+                    x
+                </button>
+
+                <button onclick="VALUE('%')">
+                    %
+                </button>
+
+                <button onclick="C()">
+                    AC
+                </button>
+            </div>
+
+            <div class="group3">
+
+
+                <button onclick="VALUE('7')">
+                    7
+                </button>
+
+                <button onclick="VALUE('8')">
+                    8
+                </button>
+
+                <button onclick="VALUE('9')">
+                    9
+                </button>
+
+                <button onclick="VALUE('+')">
+                    +
+                </button>
+
+
+
+
+                <div class="group2">
+
+
+                    <button onclick="VALUE('4')">
+                        4
+                    </button>
+
+                    <button onclick="VALUE('5')">
+                        5
+                    </button>
+
+                    <button onclick="VALUE('6')">
+                        6
+                    </button>
+
+                    <button onclick="VALUE('-')">
+                        -
+                    </button>
+                </div>
+
+                <div class="group1">
+
+                    <button onclick="VALUE('1')">
+                        1
+                    </button>
+
+                    <button onclick="VALUE('2')">
+                        2
+                    </button>
+
+                    <button onclick="VALUE('3')">
+                        3
+                    </button>
+
+                    <button onclick="compute()">
+                        =
+                    </button>
+                </div>
+            </div>
+            <div class="group4">
+
+
+                <button class="dotButton" onclick="VALUE('.')">
+                    .
+                </button>
+
+                <button onclick="VALUE('0')">
+                    0
+                </button>
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <script>
+        function VALUE(a) {
+            const txt = document.getElementById("txt");
+
+            txt.value += a
         }
-</script>
+
+        function compute() {
+            const txt = document.getElementById("txt");
+
+            txt.value = eval(txt.value);
+        }
+
+        function C() {
+            const txt = document.getElementById("txt");
+
+            txt.value = "";
+
+        }
+    </script>
+
+
 </body>
 
 </html>
