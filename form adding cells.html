@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: url(https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=1500) no-repeat;
+            background-position: center;
+            background-size: contain;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            flex-direction: column;
+
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            gap: 18px;
+            margin: 80px 30px;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+            padding: 15px;
+            color: white;
+            background-color: rgba(22, 3, 3, 0.185);
+            
+        }
+
+        form input {
+            width: 80%;
+            padding: 8px 6px;
+            border-radius: 8px;
+            border: 1px solid gray;
+            outline: none;
+            font-weight: 900;
+
+        }
+
+        form button {
+            padding: 6px 35px;
+            border: 1px solid black;
+            border-radius: 8px;
+        }
+
+        form h1{
+            text-decoration: underline;
+            font-size: 55px;
+        }
+
+        table {
+            background-color: white;
+            width: 100%;
+            padding: 12px;
+        }
+
+        th {
+            border: 2px solid;
+        }
+
+        td {
+            border: 2px solid black;
+            padding: 12px;
+        }
+
+        table {
+            border: 2px solid;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <form id="form">
+        <h1>Form</h1>
+        <input placeholder="  Enter Your User Name:" type="text" name="name">
+        <input placeholder="  Enter Your Email:" type="text" name="email">
+        <button>Submit</button>
+    </form>
+
+    <table>
+        <thead>
+
+            <tr>
+                <th>Name</th>
+                <th>About</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="data">
+
+
+        </tbody>
+
+    </table>
+
+    <script>
+
+        const form = document.getElementById("form");
+
+        form.addEventListener("submit", function (a) {
+
+
+
+
+            a.preventDefault();
+
+            const Formdata = new FormData(this);
+
+            let tRow = document.getElementById("data").insertRow();
+
+
+
+            let cell1 = tRow.insertCell();
+            let cell2 = tRow.insertCell();
+
+
+            const data1 = Formdata.get("name");
+            const data2 = Formdata.get("email");
+
+            cell1.textContent = data1;
+            cell2.textContent = data2;
+
+
+            this.reset();
+
+
+
+
+
+        })
+    </script>
+
+</body>
+
+</html>
