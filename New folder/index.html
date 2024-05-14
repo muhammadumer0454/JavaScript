@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table,thead,tr,th, td{
+          border: 2px solid gray;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    
+    <label>Enter Your Subject:</label>
+    <input id="subject" type="text">
+
+    <label>Enter Your Marks:</label>
+    <input id="marks" type="text">
+
+    <label>Enter Your Total:</label>
+    <input id="total" type="text">
+
+    <button onclick="submit()">submit</button>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Total</th>
+                <th>Percentage</th>
+                <th>Grade</th>
+            </tr>
+
+    
+        </thead>
+
+        <tbody>
+            <tr>
+                <td id="td1"></td>
+                <td id="td2"></td>
+                <td id="td3"></td>
+                <td id="td4"></td>
+                <td id="td5"></td>
+              
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        let submit = () =>{
+
+
+            let subject = document.querySelectorAll("input")[0];
+            let marks = document.querySelectorAll("input")[1];
+            let total = document.querySelectorAll("input")[2];
+
+
+            let td1 = document.querySelectorAll("td")[0];
+            let td2 = document.querySelectorAll("td")[1];
+            let td3 = document.querySelectorAll("td")[2];
+            let td4 = document.querySelectorAll("td")[3];
+            let td5 = document.querySelectorAll("td")[4];
+
+            td1.innerText = subject.value;
+             td2.innerText = marks.value;
+            td3.innerText = total.value;
+
+            const percentage = parseInt( marks.value) / parseInt( total.value) * 100;
+
+            td4.innerText = percentage + "%";
+
+            switch(true){
+                case percentage >= 70:
+                grade = "A"
+                break;
+
+                case percentage > 40:
+                grade = "B"
+                break;
+
+                case percentage <= 40:
+                grade = "C"
+                break;
+            }
+
+            td5.innerText = grade;
+
+        
+
+        }
+    </script>
+</body>
+</html>
